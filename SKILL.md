@@ -61,9 +61,10 @@ and remote branch deletion need explicit go-ahead in this session.
 
 Perform a retrospective within the closeout turn using the available conversation, tool results, and artifacts.
 Do not introduce continuous logging, monitoring agents, or a separate audit workflow.
-Review the applicable global instructions, repository rules, loaded skills, and other user-provided workflow requirements, including relevant instructions that should have been consulted but were missed.
+Review the applicable global instructions, repository rules, loaded skills (explicitly including this `wrap-up` skill), and other user-provided workflow requirements, including relevant instructions that should have been consulted but were missed.
 Keep two independent judgments: whether the agent followed the applicable instructions, and whether those instructions supported the work effectively.
 A compliant execution can still expose poor guidance; an execution failure does not by itself establish a guidance defect.
+The boundary against continuing the task limits additional execution, not retrospective analysis or improvement proposals.
 
 ### Adherence
 
@@ -80,7 +81,9 @@ Keep findings grounded in observable actions and results rather than an assumed 
 
 ### Workflow friction
 
-Look for problems encountered in interpreting or following guidance, rather than difficulties intrinsic to the task.
+Look for problems encountered in interpreting or following guidance and avoidable friction in the agent's working method, rather than difficulties intrinsic to the task.
+Before deciding that there are no material findings, examine observed corrections of misunderstandings, failed approaches, and avoidable rework for their cause, impact, and possible improvement.
+These incidents warrant consideration, not an automatic finding or a new rule.
 Use categories only when they help explain an observed incident; do not fill a mandatory checklist or invent findings.
 Consider, for example:
 
@@ -95,10 +98,12 @@ For each material finding, identify the source or tool, the observed event and e
 Name the likely feedback recipient when known; do not invent ownership.
 Separate observations from hypotheses and consolidate related incidents rather than listing every failed attempt.
 Suggestions may clarify, simplify, or remove guidance; do not turn every isolated failure into a new universal rule.
+When evidence points to agent execution rather than defective guidance, propose an improvement to the working method without attributing it to an instruction defect.
 
 ### Reporting boundary
 
 Keep routine review brief and expand only material findings.
+Assess materiality before compressing the report; retain enough of the event, impact, and improvement to explain a useful lesson even when the mistake was corrected.
 Report adherence findings and workflow feedback separately from each other and from unfinished task work.
 When no material findings exist, omit those sections; if the review was incomplete or could not be performed, report its scope and limitations instead of implying a clean review.
 Avoid blanket compliance claims unsupported by the evidence.
