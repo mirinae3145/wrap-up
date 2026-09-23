@@ -53,6 +53,8 @@ files, repo-wide cleanup, and the "done" call to the orchestrator.
    when work continues later or changes hands, following the project's
    convention or else suggesting `/handoff`. Offer to record follow-ups via
    `todoist-task`.
+   Apply **Case accumulation** below for configured retrospective records, independently of whether a handoff is needed.
+   Include records written or updated under **Artifacts**, or state any material recording limitation.
 
 Commit only when asked or by repository convention. Push, merge, release,
 and remote branch deletion need explicit go-ahead in this session.
@@ -98,7 +100,14 @@ For each material finding, identify the source or tool, the observed event and e
 Name the likely feedback recipient when known; do not invent ownership.
 Separate observations from hypotheses and consolidate related incidents rather than listing every failed attempt.
 Suggestions may clarify, simplify, or remove guidance; do not turn every isolated failure into a new universal rule.
-When evidence points to agent execution rather than defective guidance, propose an improvement to the working method without attributing it to an instruction defect.
+When evidence points to agent execution rather than defective guidance, identify the concrete action and propose an improvement to the working method without attributing it to an instruction defect.
+Acknowledging an execution failure does not establish whether it was an isolated lapse or a recurring tendency of the current model; do not end the analysis with self-blame or a promise to be more careful.
+Treat isolated error, model tendency, guidance, and environment as possible explanations only where supported, and leave the cause unresolved when the evidence cannot distinguish them.
+For material incidents, preserve enough context for later comparison: relevant conditions, expected and observed behavior, impact, and recovery or mitigation attempted and its result.
+Use the closeout summary and, when configured, the records described in **Case accumulation** below.
+Include the model or version only if known and relevant; do not infer it.
+Compare similar incidents and successful counterexamples when available, limiting recurrence claims to the history actually reviewed.
+An execution failure can justify a targeted mitigation or evaluation proposal without proving a model tendency or a guidance defect; explain what further evidence would help distinguish them instead of prescribing a universal rule.
 
 ### Reporting boundary
 
@@ -110,7 +119,49 @@ Avoid blanket compliance claims unsupported by the evidence.
 
 The review may produce a feedback draft for the user or a maintainer, but does not itself authorize changing governing instructions, contacting maintainers, or filing external feedback.
 Leave improvements outside the original task as follow-ups.
-Do not automatically create a separate report or persistent incident log; use the closeout summary or an otherwise warranted handoff.
+Persistent case records are limited to the configured closeout workflow below; do not introduce continuous collection or unrelated reports.
+
+### Case accumulation
+
+#### Discover the recording arrangement
+
+Resolve locations and recording policy from the current user request, applicable global instructions, project contribution guidance, and configuration already available in the execution context, respecting instruction priority.
+If still unspecified, inspect the current work area for an established retrospective or handoff convention; do not search the whole home directory or invent a default path.
+Resolve relative paths against the base specified by their source; if that base is ambiguous, treat the location as unresolved.
+Determine which stores are enabled (local, global, or both), whether closeout writes are authorized, and their personal or shared audience.
+An existing directory alone does not establish permission to record there.
+Reuse established authorization without requesting it again.
+If the arrangement is absent, ambiguous, or inaccessible, complete the closeout with the candidate finding in the summary and identify the unresolved setting or access limitation.
+Suggest a one-time setup when useful; do not block closeout or silently claim persistence.
+
+#### Place and compare cases
+
+Local records preserve project-specific evidence and context; global records support comparisons across projects and reusable hypotheses or mitigations.
+Choose scope by relevance, not merely where the incident occurred or whether the agent made the mistake.
+Keep one canonical record per incident in an appropriate enabled store and reference it from the other when useful, without copying sensitive project details across audiences.
+If only one store is enabled, retain useful cases there with their applicability stated; do not create the other store implicitly.
+
+For a material finding, search the configured stores narrowly for related conditions, observed behavior, and previous mitigations before writing.
+Follow the existing record format; otherwise use one Markdown file per incident with a stable identifier and date, the context and evidence described above, cause hypotheses separated from observations, and any related case references.
+Use project-relative references for local evidence where practical and retain identifiers so related cases remain distinguishable if paths change.
+Do not copy entire conversations, credentials, or unnecessary private content.
+Update an existing record when revisiting the same incident; create a linked record for a genuinely separate occurrence.
+Preserve the original observation when adding recovery results or revising a hypothesis.
+Record observed successful uses of a mitigation and relevant counterexamples as well as failures; do not run new experiments merely to fill the record.
+
+When cross-project relevance is supported, add or update a global comparison with case references, common conditions, counterexamples, and remaining uncertainty.
+A single case may support a labeled hypothesis, not a confirmed general tendency.
+Do not promote a hypothesis into governing instructions automatically or use a fixed incident count as proof of a model tendency.
+Selective case collection does not establish an overall failure rate; state search or evidence limits where they affect the conclusion.
+
+#### Optional Git exclusion
+
+Treat Git tracking as a user choice: personal local records may be excluded, while shared project records may intentionally be tracked.
+For users who choose a common local directory convention across repositories, a global ignore pattern can avoid editing each repository's `.gitignore`.
+Derive the pattern from the chosen location; this skill specifies neither a directory name nor a global ignore file path.
+Inspect the effective Git exclusion configuration before proposing a change, preserve existing entries, and verify the resulting pattern against intended record paths and nearby paths that should remain trackable.
+Change global Git settings or exclusion files only when explicitly authorized for that setup; ordinary closeout authorization does not include it.
+Ignore rules do not untrack existing files or provide access control; do not remove tracked records from the index automatically.
 
 ## Closeout summary
 
