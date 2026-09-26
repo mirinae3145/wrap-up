@@ -14,6 +14,11 @@ A useful retrospective describes observable behavior, its impact, and a concrete
 It should not end with self-blame or assume that one failure proves a defect in the user, environment, guidance, or model.
 Recovered mistakes can still contain useful evidence.
 
+When automatic context compaction hides earlier conversation or tool calls, the skill first tries to recover the relevant task history from existing local session records.
+For Codex, it looks under `CODEX_HOME` (or `~/.codex`) and confirms the session identity before reviewing the omitted messages and tool results in manageable chunks.
+This read-only review is independent of optional case recording and does not modify session logs.
+If records are missing or incomplete, the summary states the remaining review limitations.
+
 ## Set up case accumulation
 
 Persistent recording is optional.
